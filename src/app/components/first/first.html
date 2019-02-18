@@ -1,0 +1,6 @@
+<h1 ng-click="firstCtrl.testFunc()"> first </h1>
+<ul>
+    <li ng-repeat="item in firstCtrl.list track by $index">{{item}}</li>
+</ul>
+<button ng-click="firstCtrl.add(1)"> countter+1</button>
+<div>{{firstCtrl.counter}}</div>

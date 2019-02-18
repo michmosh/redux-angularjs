@@ -1,11 +1,15 @@
 import angular from 'angular';
-
 import '../style/app.css';
-
+import uiRouter from 'angular-ui-router';
+import ngRedux from 'ng-redux';
+import RootReducer from './reducers/index'
+import First from '../app/components/first/first.component';
+import Second from '../app/components/second/second.component';
+import Third from '../app/components/third/third.component';
 let app = () => {
   return {
     template: require('./app.html'),
-    controller: 'AppCtrl',
+   
     controllerAs: 'app'
   }
 };
@@ -18,8 +22,14 @@ class AppCtrl {
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [])
+angular.module(MODULE_NAME, [ngRedux ])
   .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
+  .component('first' , First)
+  .component('second' , Second)
+  .component('third' , Third)
+  .config(($ngReduxProvider)=>{
+    $ngReduxProvider.createStoreWith(RootReducer);
+  });
+  
 
 export default MODULE_NAME;

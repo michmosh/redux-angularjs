@@ -1,22 +1,30 @@
 /* styles in src/style directory are applied to the whole page */
-body {
-  background: #0147A7;
-  color: #fff;
+app{
+    display: grid;
+    grid-template-areas: "header header header"
+                            "first second third" 
+                            "footer footer footer" ;
+    padding:1rem;
+    align-items: center;
+    grid-gap:1rem;
 }
 
-a {
-  color: #03A9F4;
+header{
+    grid-area: header;
+    min-height: 5rem;
+    background-color: teal;
 }
-
-main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
+first{
+    grid-area: first;
 }
-
-footer {
-  text-align: center;
-  font-size: 0.8em;
+second{
+    grid-area: second;
+}
+third{
+    grid-area: third;
+}
+footer{
+    grid-area: footer;
+    min-height: 5rem;
+    background-color: teal;
 }
